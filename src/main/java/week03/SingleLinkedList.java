@@ -22,7 +22,6 @@ public class SingleLinkedList {
             head = node;
             tail = node;
             size = 1;
-            return;
         } else if (location == 0) { //insert at beginning
             node.next = head;
             head = node;
@@ -39,8 +38,6 @@ public class SingleLinkedList {
                 tempNode = tempNode.next;
                 index++;
             }
-            Node nextNode = tempNode.next;
-            tempNode.next = nextNode;
             size++;
         }
     }
@@ -52,6 +49,7 @@ public class SingleLinkedList {
         System.out.println("Linked List: ");
         Node tempNode = head;
         for (int i = 0; i < size; i++) {
+            assert tempNode != null;
             System.out.print(tempNode.value);
             if (i !=size -1) {
                 System.out.print("->");
